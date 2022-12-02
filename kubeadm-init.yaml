@@ -9,12 +9,12 @@ bootstrapTokens:
   - authentication
 kind: InitConfiguration
 localAPIEndpoint:
-  advertiseAddress: 192.168.10.120
+  advertiseAddress: 192.168.1.5 #master node ip address
   bindPort: 6443
 nodeRegistration:
   criSocket: unix:///var/run/containerd/containerd.sock
   imagePullPolicy: IfNotPresent
-  name: rasp-master
+  name: rasp-worker-1 #hostname
   taints: null
 ---
 apiServer:
@@ -26,8 +26,9 @@ controllerManager: {}
 dns: {}
 etcd:
   local:
+    imageRepository: registry.aliyuncs.com/google_containers #k8s container registry prefix
     dataDir: /var/lib/etcd
-imageRepository: registry.k8s.io
+imageRepository: registry.aliyuncs.com/google_containers #k8s container registry prefix
 kind: ClusterConfiguration
 kubernetesVersion: 1.25.0
 networking:
