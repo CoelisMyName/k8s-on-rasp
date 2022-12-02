@@ -14,7 +14,7 @@ localAPIEndpoint:
 nodeRegistration:
   criSocket: unix:///var/run/containerd/containerd.sock
   imagePullPolicy: IfNotPresent
-  name: rasp-worker-1 #hostname
+  # name: rasp-worker-1 #hostname
   taints: null
 ---
 apiServer:
